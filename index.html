@@ -3,51 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <title>Marketplace Kyocera</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body { font-family: sans-serif; padding: 2rem; background: #f4f4f4; }
-    .product { background: #fff; padding: 1rem; margin-bottom: 1rem; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    img { width: 100%; max-width: 300px; }
-    h2 { margin-top: 0.5rem; }
-    a.button { display: inline-block; margin-top: 1rem; background: #007bff; color: white; padding: 0.5rem 1rem; text-decoration: none; border-radius: 4px; }
+    body { font-family: 'Inter', sans-serif; background: #f2f2f2; margin: 0; padding: 2rem; }
+    header { background-color: #004b8d; color: white; padding: 1.5rem; border-radius: 8px; text-align: center; margin-bottom: 2rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 2rem; }
+    .product { background: white; border-radius: 10px; padding: 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.08); text-align: center; }
+    .product img { width: 100%; max-width: 220px; margin-bottom: 1rem; }
+    .product h2 { font-size: 1.1rem; color: #222; margin: 0.5rem 0; }
+    .product p { color: #444; margin: 0.5rem 0 1rem 0; }
+    .button { background: #007bff; color: white; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px; font-weight: 600; }
+    .button:hover { background: #0056b3; }
   </style>
 </head>
 <body>
-  <h1>Marketplace Kyocera – Equipamentos Empresariais</h1>
+  <header>
+    <h1>Marketplace Kyocera</h1>
+    <p>Impressoras e Equipamentos Multifuncionais Empresariais</p>
+  </header>
+  <div class="grid">
 
-  <div class="product">
-    <img src="PA4500x.png" alt="Kyocera PA4500x">
-    <h2>Kyocera PA4500x</h2>
-    <p>Impressora Mono A4 – 620 €</p>
-    <a class="button" href="kyocera-pa4500x.html">Ver mais</a>
+    <div class="product">
+      <img src="PA4500x.png" alt="Kyocera PA4500x">
+      <h2>Kyocera PA4500x</h2>
+      <p>Impressora Mono A4 – 620 €</p>
+      <a class="button" href="kyocera-pa4500x.html">Ver mais</a>
+    </div>
+    <div class="product">
+      <img src="ma5500.png" alt="Kyocera MA5500ifx">
+      <h2>Kyocera MA5500ifx</h2>
+      <p>Multifunções Mono A4 – 890 €</p>
+      <a class="button" href="kyocera-ma5500ifx.html">Ver mais</a>
+    </div>
+    <div class="product">
+      <img src="3500ci.png" alt="Kyocera TA MA3500ci">
+      <h2>Kyocera TA MA3500ci</h2>
+      <p>Multifunções Cores A4 – 1.690 €</p>
+      <a class="button" href="kyocera-ta-ma3500ci.html">Ver mais</a>
+    </div>
+    <div class="product">
+      <img src="mz2501ci.png" alt="Kyocera TA MZ2501ci">
+      <h2>Kyocera TA MZ2501ci</h2>
+      <p>Multifunções Cores A3 – 2.450 €</p>
+      <a class="button" href="kyocera-ta-mz2501ci.html">Ver mais</a>
+    </div>
+    <div class="product">
+      <img src="mz4001ci.png" alt="Kyocera TA MZ4001ci">
+      <h2>Kyocera TA MZ4001ci</h2>
+      <p>Multifunções Cores A3 – 3.100 €</p>
+      <a class="button" href="kyocera-ta-mz4001ci.html">Ver mais</a>
+    </div>
   </div>
-
-  <div class="product">
-    <img src="ma5500.png" alt="Kyocera MA5500ifx">
-    <h2>Kyocera MA5500ifx</h2>
-    <p>Multifunções Mono A4 – 890 €</p>
-    <a class="button" href="kyocera-ma5500ifx.html">Ver mais</a>
-  </div>
-
-  <div class="product">
-    <img src="3500ci.png" alt="Kyocera TA MA3500ci">
-    <h2>Kyocera TA MA3500ci</h2>
-    <p>Multifunções Cores A4 – 1.690 €</p>
-    <a class="button" href="kyocera-ta-ma3500ci.html">Ver mais</a>
-  </div>
-
-  <div class="product">
-    <img src="mz2501ci.png" alt="Kyocera TA MZ2501ci">
-    <h2>Kyocera TA MZ2501ci</h2>
-    <p>Multifunções Cores A3 – 2.450 €</p>
-    <a class="button" href="kyocera-ta-mz2501ci.html">Ver mais</a>
-  </div>
-
-  <div class="product">
-    <img src="mz4001ci.png" alt="Kyocera TA MZ4001ci">
-    <h2>Kyocera TA MZ4001ci</h2>
-    <p>Multifunções Cores A3 – 3.100 €</p>
-    <a class="button" href="kyocera-ta-mz4001ci.html">Ver mais</a>
-  </div>
-
 </body>
 </html>
