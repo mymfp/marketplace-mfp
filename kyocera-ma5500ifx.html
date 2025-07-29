@@ -1,14 +1,44 @@
+
 <!DOCTYPE html>
 <html lang="pt">
-<head><meta charset="UTF-8"><title>Kyocera MA5500ifx</title></head>
+<head>
+  <meta charset="UTF-8">
+  <title>Kyocera MA5500ifx</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; background: #f4f4f4; }
+    .product { background: #fff; padding: 2rem; border-radius: 6px; max-width: 700px; margin: auto; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    img { width: 100%; max-width: 300px; }
+    .simulador { margin-top: 2rem; }
+    input { margin: 0.2rem 0; padding: 0.4rem; width: 100%; max-width: 300px; }
+    button { padding: 0.6rem 1rem; background: #007bff; color: #fff; border: none; cursor: pointer; margin-top: 1rem; }
+    .resultado { margin-top: 1rem; font-weight: bold; }
+  </style>
+</head>
 <body>
-  <h1>Kyocera MA5500ifx</h1>
-  <img src="https://www.kyoceradocumentsolutions.eu/content/dam/eu/products/mfp/ma5500ifx/img/MA5500ifx_front.jpg" width="300">
-  <p><strong>Tipo:</strong> Multifunções Mono A4</p>
-  <p><strong>Funções:</strong> Impressão, Cópia, Digitalização, Fax</p>
-  <p><strong>Velocidade:</strong> até 55 ppm</p>
-  <p><strong>Resolução:</strong> 1200 x 1200 dpi</p>
-  <p><strong>Preço:</strong> 890 €</p>
-  <a href="mailto:comercial@empresa.pt?subject=Proposta Kyocera MA5500ifx">Solicitar proposta</a>
+  <div class="product">
+    <h1>Kyocera MA5500ifx</h1>
+    <img src="ma5500.png" alt="Kyocera MA5500ifx">
+    <p><strong>Preço estimado:</strong> 890 €</p>
+    <div class="simulador">
+      <h3>Simulador de custo mensal</h3>
+      <label>Páginas a preto e branco/mês:</label><br>
+      <input type="number" id="pb" placeholder="0"><br>
+      <label>Páginas a cores/mês:</label><br>
+      <input type="number" id="cor" placeholder="0"><br>
+      <button onclick="calcular()">Calcular custo mensal</button>
+      <div class="resultado" id="resultado"></div>
+    </div>
+  </div>
+  <script>
+    const preco_pb = 0.00468;
+    const preco_cor = 0.0;
+
+    function calcular() {
+      const pb = parseInt(document.getElementById('pb').value) || 0;
+      const cor = parseInt(document.getElementById('cor').value) || 0;
+      const total = (pb * preco_pb + cor * preco_cor).toFixed(2);
+      document.getElementById('resultado').innerText = `Custo mensal estimado: € ${total}`;
+    }
+  </script>
 </body>
 </html>
