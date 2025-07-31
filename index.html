@@ -1,58 +1,102 @@
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Marketplace Kyocera</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Inter', sans-serif; background: #f2f2f2; margin: 0; padding: 2rem; }
-    header { background-color: #004b8d; color: white; padding: 1.5rem; border-radius: 8px; text-align: center; margin-bottom: 2rem; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 2rem; }
-    .product { background: white; border-radius: 10px; padding: 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.08); text-align: center; }
-    .product img { width: 100%; max-width: 220px; margin-bottom: 1rem; }
-    .product h2 { font-size: 1.1rem; color: #222; margin: 0.5rem 0; }
-    .product p { color: #444; margin: 0.5rem 0 1rem 0; }
-    .button { background: #007bff; color: white; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px; font-weight: 600; }
-    .button:hover { background: #0056b3; }
+    body { font-family: Arial, sans-serif; background: #f9f9f9; padding: 2rem; }
+    h1 { text-align: center; margin-bottom: 2rem; }
+    .product { background: white; border-radius: 8px; padding: 1rem; margin-bottom: 2rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); max-width: 800px; margin-left: auto; margin-right: auto; }
+    .product img { width: 100%; max-width: 300px; }
+    .product h2 { margin-top: 0.5rem; }
+    .simulator { margin-top: 1rem; }
+    .simulator input { width: 80px; padding: 5px; margin-right: 10px; }
+    .result { margin-top: 10px; font-weight: bold; }
+    a.button { display: inline-block; margin-top: 1rem; background: #007bff; color: white; padding: 0.5rem 1rem; text-decoration: none; border-radius: 4px; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Marketplace Kyocera</h1>
-    <p>Impressoras e Equipamentos Multifuncionais Empresariais</p>
-  </header>
-  <div class="grid">
+  <h1>Marketplace Kyocera – Equipamentos Empresariais</h1>
 
-    <div class="product">
-      <img src="PA4500x.png" alt="Kyocera PA4500x">
-      <h2>Kyocera PA4500x</h2>
-      <p>Impressora Mono A4 – 620 €</p>
-      <a class="button" href="kyocera-pa4500x.html">Ver mais</a>
-    </div>
-    <div class="product">
-      <img src="ma5500.png" alt="Kyocera MA5500ifx">
-      <h2>Kyocera MA5500ifx</h2>
-      <p>Multifunções Mono A4 – 890 €</p>
-      <a class="button" href="kyocera-ma5500ifx.html">Ver mais</a>
-    </div>
-    <div class="product">
-      <img src="3500ci.png" alt="Kyocera TA MA3500ci">
-      <h2>Kyocera TA MA3500ci</h2>
-      <p>Multifunções Cores A4 – 1.690 €</p>
-      <a class="button" href="kyocera-ta-ma3500ci.html">Ver mais</a>
-    </div>
-    <div class="product">
-      <img src="mz2501ci.png" alt="Kyocera TA MZ2501ci">
-      <h2>Kyocera TA MZ2501ci</h2>
-      <p>Multifunções Cores A3 – 2.450 €</p>
-      <a class="button" href="kyocera-ta-mz2501ci.html">Ver mais</a>
-    </div>
-    <div class="product">
-      <img src="mz4001ci.png" alt="Kyocera TA MZ4001ci">
-      <h2>Kyocera TA MZ4001ci</h2>
-      <p>Multifunções Cores A3 – 3.100 €</p>
-      <a class="button" href="kyocera-ta-mz4001ci.html">Ver mais</a>
-    </div>
-  </div>
+  <div id="products"></div>
+
+  <script>
+    const products = [
+      {
+        name: "Kyocera PA4500x",
+        image: "PA4500x.png",
+        pageBW: 0.00671,
+        pageColor: 0.00,
+        rental: 11,
+        link: "#"
+      },
+      {
+        name: "Kyocera MA5500ifx",
+        image: "ma5500.png",
+        pageBW: 0.00468,
+        pageColor: 0.00,
+        rental: 31,
+        link: "#"
+      },
+      {
+        name: "Kyocera TA MA3500ci",
+        image: "3500ci.png",
+        pageBW: 0.00585,
+        pageColor: 0.0585,
+        rental: 34,
+        link: "#"
+      },
+      {
+        name: "Kyocera TA MZ2501ci",
+        image: "mz2501ci.png",
+        pageBW: 0.0058,
+        pageColor: 0.0360,
+        rental: 53,
+        link: "#"
+      },
+      {
+        name: "Kyocera TA MZ4001ci",
+        image: "mz4001ci.png",
+        pageBW: 0.0045,
+        pageColor: 0.0270,
+        rental: 69,
+        link: "#"
+      }
+    ];
+
+    const container = document.getElementById('products');
+
+    products.forEach((product, index) => {
+      const div = document.createElement('div');
+      div.className = 'product';
+      div.innerHTML = `
+        <img src="${product.image}" alt="${product.name}" />
+        <h2>${product.name}</h2>
+        <div class="simulator">
+          <label>Páginas P&B/mês:</label>
+          <input type="number" id="bw-${index}" value="0" />
+          <label>Páginas Cor/mês:</label>
+          <input type="number" id="color-${index}" value="0" />
+          <button onclick="calculate(${index})">Calcular</button>
+          <div id="result-${index}" class="result"></div>
+        </div>
+        <a class="button" href="${product.link}">Ver mais</a>
+      `;
+      container.appendChild(div);
+    });
+
+    function calculate(index) {
+      const product = products[index];
+      const bw = parseInt(document.getElementById(`bw-${index}`).value) || 0;
+      const color = parseInt(document.getElementById(`color-${index}`).value) || 0;
+      const serviceCost = (bw * product.pageBW + color * product.pageColor);
+      const total = serviceCost + product.rental;
+      document.getElementById(`result-${index}`).innerHTML =
+        `Valor mensal de serviço: ${serviceCost.toFixed(2)} €<br>
+         Valor mensal de locação: ${product.rental.toFixed(2)} €<br>
+         <strong>Valor mensal total: ${total.toFixed(2)} €</strong>`;
+    }
+  </script>
 </body>
 </html>
